@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<%= content_tag :canvas, "", id: "canvas", height: "200", width: "400" %>
+
+<div id: = "question">
+
+<p><strong>Question ID: </strong><%= @question.id %></p>
+
+<p><strong>Content: </strong><%= @question.content %></p>
+
+<%= form_tag(question_polls_path(@question.id, @poll), method: :post) do %>
+  <% @answers.each do |answer| %>
+    <%= radio_button_tag("answer", answer) %><%= answer %><br />
+    <% end %>
+
+  <%= submit_tag("Submit") %>
+<% end %>
+
+<%= link_to "Submit", question_polls_path(@question.id, @poll ), method: :post %>
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>
+
+<p><%= @question.poll %></p>
+
+
+<script id="my_vars_json" type="text/json">
+    <%= raw @question.data_table.to_json %>
+</script>
+
+</div>

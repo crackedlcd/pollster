@@ -1,0 +1,28 @@
+<h1>Listing polls</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @polls.each do |poll| %>
+      <tr>
+        <td><%= link_to 'Show', poll %></td>
+        <td><%= link_to 'Edit', edit_poll_path(poll) %></td>
+        <td><%= link_to 'Destroy', poll, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<p><%= @location.first.state unless @location.first.state.nil? %></p>
+<p><%= @location.first.country %></p>
+<p><%= @location.first.country_code %></p>
+<p><%= @location %></p>
+
+<%= link_to 'New Poll', new_question_poll_path %>
