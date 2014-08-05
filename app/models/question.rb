@@ -1,6 +1,10 @@
 class Question
   include Mongoid::Document
+  include Mongoid::Slug
+
   field :content
+  slug :content
+  
   embeds_many :poll
   accepts_nested_attributes_for :poll
   field :answers, :type => Array, default: []
