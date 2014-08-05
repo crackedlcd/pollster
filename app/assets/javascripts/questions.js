@@ -14,3 +14,9 @@ $(function() {
   var ctx = cht.getContext('2d');
   var myDoughnutChart = new Chart($("#canvas").get(0).getContext("2d")).Doughnut(dataPoints);
 });
+
+$(function() {
+	$('#notice').on('click', function() {
+		$(this).fadeOut(1000);
+	});
+});

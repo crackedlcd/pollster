@@ -1,27 +1,21 @@
-<p id="notice"><%= notice %></p>
+<p class="bg-success" id="notice"><%= notice %></p>
 
-<%= content_tag :canvas, "", id: "canvas", height: "200", width: "400" %>
+<div id="question">
 
-<div id: = "question">
+<h2><%= @question.content %></h2>
 
-<p><strong>Question ID: </strong><%= @question.id %></p>
+<div class="radio center-block">
+	<%= form_tag(question_polls_path(@question.id, @poll), method: :post) do %>
+	  <% @answers.each do |answer| %>
+	    <%= radio_button_tag("answer", answer) %><%= answer %><br />
+	    <% end %>
 
-<p><strong>Content: </strong><%= @question.content %></p>
+	  <%= submit_tag("Submit", class: "btn btn-primary") %>
+	<% end %>
+</div>
 
-<%= form_tag(question_polls_path(@question.id, @poll), method: :post) do %>
-  <% @answers.each do |answer| %>
-    <%= radio_button_tag("answer", answer) %><%= answer %><br />
-    <% end %>
 
-  <%= submit_tag("Submit") %>
-<% end %>
-
-<%= link_to "Submit", question_polls_path(@question.id, @poll ), method: :post %>
-
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
-
-<p><%= @question.poll %></p>
+<%= content_tag :canvas, "", id: "canvas", class: "center-block", height: "200", width: "400" %>
 
 
 <script id="my_vars_json" type="text/json">

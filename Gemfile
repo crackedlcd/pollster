@@ -26,11 +26,16 @@ gem 'spring',        group: :development
 gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
 gem 'bson_ext'
 
-gem 'geocoder'
+gem 'geocoder', '~> 1.2.3'
 
-gem 'chart-js-rails'
+gem 'chart-js-rails', '~> 0.0.7'
+
+gem 'bootstrap-sass'
+gem 'font-awesome-sass'
+
+gem 'mongoid_slug', '~> 3.2.1'
 
 group :development do 
-  gem 'better_errors'
-  gem "binding_of_caller"
+  gem 'better_errors', '~> 1.1.0'
+  gem 'binding_of_caller', '~> 0.7.2'
 end
