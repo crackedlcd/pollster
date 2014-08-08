@@ -33,7 +33,10 @@ class PollsController < ApplicationController
     
     respond_to do |format|
       if @poll.save
-        format.html { redirect_to question_path(@question), notice: 'Vote entered. Click to remove.' }
+        format.html { 
+          redirect_to question_path(@question)
+          flash[:success] = 'Vote entered. Click to remove this notification.' 
+        }
         format.json { render :show, status: :created, poll: @poll.location.first }
       else
         format.html { render :new }

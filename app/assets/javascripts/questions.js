@@ -3,7 +3,7 @@ $(function() {
       json = $.parseJSON(myVarsJSON);
 
   var dataPoints = [];
-  var colors = ["Red", "Blue", "Green", "Yellow", "Purple", "Black", "Brown"];
+  var colors = ["#BF3232", "#6769E0", "#00C700", "#E0E014", "#6C048F", "#222222", "Brown"];
   var colorIndex = 0;
   for(key in json) {
 	  dataPoints.push({ label: key, value: json[key], color: colors[colorIndex] });

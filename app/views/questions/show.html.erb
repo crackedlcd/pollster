@@ -1,25 +1,22 @@
-<p class="bg-success" id="notice"><%= notice %></p>
-
 <div id="question">
 
-<h2><%= @question.content %></h2>
+	<h2><%= @question.content %></h2>
 
-<div class="radio center-block">
-	<%= form_tag(question_polls_path(@question.id, @poll), method: :post) do %>
-	  <% @answers.each do |answer| %>
-	    <%= radio_button_tag("answer", answer) %><%= answer %><br />
+	<div class="radio center-block">
+		<%= form_tag(question_polls_path(@question.id, @poll), method: :post) do %>
+		  <% @answers.each do |answer| %>
+		    <%= radio_button_tag("answer", answer, type: "radio") %><%= answer %><br />
 	    <% end %>
-
-	  <%= submit_tag("Submit", class: "btn btn-primary") %>
-	<% end %>
-</div>
-
-
-<%= content_tag :canvas, "", id: "canvas", class: "center-block", height: "200", width: "400" %>
+		  <%= submit_tag("Submit", class: "btn btn-primary") %>
+		<% end %>
+	</div>
 
 
-<script id="my_vars_json" type="text/json">
-    <%= raw @question.data_table.to_json %>
-</script>
+	<%= content_tag :canvas, "", id: "canvas", class: "center-block", height: "200", width: "400" %>
+
+
+	<script id="my_vars_json" type="text/json">
+	    <%= raw @question.data_table.to_json %>
+	</script>
 
 </div>

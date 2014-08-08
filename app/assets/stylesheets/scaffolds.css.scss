@@ -8,6 +8,14 @@ body {
   line-height: 18px;
 }
 
+.container {
+  background-color: #fff;
+}
+
+#question {
+  padding: 0 5%;
+}
+
 p, ol, ul, td {
   font-family: helvetica, sans-serif;
   font-size: 13px;
@@ -38,6 +46,9 @@ div {
 }
 
 #notice {
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
   color: green;
 }
 
